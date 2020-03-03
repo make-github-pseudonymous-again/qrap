@@ -13,8 +13,6 @@ function escape {
   sed "s/\\([${toreplace}]\\)/${escapechar}\\1/g" <<< "$1"
 }
 
-read PASSPHRASE
-
 OPTIND=1        # Reset in case getopts has been used previously in the shell.
 
 SECURITY='WPA'
@@ -33,6 +31,8 @@ while getopts "hS:T:H" opt; do
     H) HIDDEN='H:true' ;;
   esac
 done
+
+read PASSPHRASE
 
 PAYLOAD="WIFI:S:$(escape "${SSID}");T:${SECURITY};P:$(escape "${PASSPHRASE}");${HIDDEN};"
 
