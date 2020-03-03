@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+
+function show_help ( ) {
+  echo "Usage: $0 -S SSID [ -T SECURITY ] [ -H ]"
+  exit 2
+}
+
+read PASSPHRASE
+
+OPTIND=1        # Reset in case getopts has been used previously in the shell.
+
+SECURITY='WPA'
+# WPA ~ WPA/WPA2
+# WEP ~ WEP
+# nopass ~ None
+HIDDEN=''
+# ''
+# 'H:true'
+
+function escape {
+  escaper="\\"
+  toescape=';,:\"'
+  escapechar="$(sed 's/[&/\]/\\&/g' <<< "$escaper")"
+  toreplace="${escaper}${toescape}"
+  sed "s/\\([${toreplace}]\\)/${escapechar}\\1/g" <<< "$1"
+}
+
+while getopts "hS:T:H" opt; do
+  case "$opt" in
+    h) show_help ;;
+    S) SSID=$OPTARG ;;
+    T) SECURITY=$OPTARG ;;
+    H) HIDDEN='H:true' ;;
+  esac
+done
+
+PAYLOAD="WIFI:S:$(escape "${SSID}");T:${SECURITY};P:$(escape "${PASSPHRASE}");${HIDDEN};"
+
+printf '%s' "$PAYLOAD"
