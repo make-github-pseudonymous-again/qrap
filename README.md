@@ -1,4 +1,4 @@
-# qrap
+# :poop: qrap
 
 > Generate a QR code payload for WiFi access point credentials.
 
