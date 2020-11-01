@@ -1,18 +1,24 @@
-# :poop: qrap
+:poop: qrap
+[![License](https://img.shields.io/github/license/aureooms/qrap.svg?style=flat)](https://raw.githubusercontent.com/aureooms/qrap/main/LICENSE)
+==
 
-> Generate a QR code payload for WiFi access point credentials.
+Generate a QR code payload for WiFi access point credentials.
 
-[![AUR package](https://img.shields.io/aur/version/qrap)](https://aur.archlinux.org/packages/qrap)
-
-## Install
+## :minidisc: Install [![AUR package](https://img.shields.io/aur/version/qrap)](https://aur.archlinux.org/packages/qrap)
 
 ```sh
 make DESTDIR=/ PREFIX=/usr install
 ```
 
-## Usage
+## :woman_astronaut: Usage
 
 ```sh
-> qrap -S SSID -T SECURITY | qrencode -t UTF8 -l Q
-<password>
+> qrap -S <SSID> -T <SECURITY> | qrencode -t UTF8 -l Q
+<PASSWORD>
+```
+
+## :open_book: Help
+
+```sh
+> qrap -h
 ```
