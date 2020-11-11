@@ -1,5 +1,6 @@
 :poop: qrap
 [![License](https://img.shields.io/github/license/aureooms/qrap.svg?style=flat)](https://raw.githubusercontent.com/aureooms/qrap/main/LICENSE)
+[![Build status](https://img.shields.io/travis/aureooms/qrap/main.svg)](https://travis-ci.org/aureooms/qrap/branches)
 ==
 
 Generate a QR code payload for WiFi access point credentials.
