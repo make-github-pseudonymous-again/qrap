@@ -32,7 +32,7 @@ while getopts "hS:T:H" opt; do
   esac
 done
 
-read PASSPHRASE
+read -r PASSPHRASE
 
 PAYLOAD="WIFI:S:$(escape "${SSID}");T:${SECURITY};P:$(escape "${PASSPHRASE}");${HIDDEN};"
 
